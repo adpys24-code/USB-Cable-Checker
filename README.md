@@ -1,3 +1,7 @@
+<!-- boardrepo-badge:v1 -->
+[![View on BoardRepo](https://boardrepo.com/badge/github.svg?v=2)](https://boardrepo.com/b/ffa4ebb7-d15d-49c6-913c-9a959f5d0827?ref=github-readme)
+<!-- /boardrepo-badge:v1 -->
+
 # USB Cable Checker
 
 A passive continuity tester for USB cables, designed in KiCad 10.
