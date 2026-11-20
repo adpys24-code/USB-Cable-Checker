@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "usb_checker") (type "KiCad") (uri "${KIPRJMOD}/lib/usb_checker.kicad_sym") (options "") (descr "USB cable checker project symbols"))
+)

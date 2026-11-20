@@ -1,0 +1,37 @@
+(version 1)
+
+# All parts now come from the user's JLCPCB "USB Tester Parts" library, so the land patterns are the
+# manufacturers' own.  A few of them are tighter than the generic board rules; the exceptions below
+# are scoped to the single footprint that needs them.
+
+# The through-hole USB-C receptacles (J1, J4) put their B-row pads 0.14 mm apart and give them a
+# 0.10 mm annular ring, and their two locating holes are non-plated (no copper at all).
+(rule "USB-C through-hole land pattern"
+	(constraint annular_width (min 0.09mm))
+	(condition "A.memberOfFootprint('J1') || A.memberOfFootprint('J4')"))
+
+# The Micro-B 2.0 receptacle (J9) has its locating pegs 0.13 mm from its own shell pads.
+(rule "Micro-B pegs to their own pads"
+	(constraint clearance (min 0.12mm))
+	(condition "A.memberOfFootprint('J9') && B.memberOfFootprint('J9')"))
+
+(rule "Micro-B peg holes to their own pads"
+	(constraint hole_clearance (min 0.1mm))
+	(condition "A.memberOfFootprint('J9') && B.memberOfFootprint('J9')"))
+
+# The USB-C B-row pins sit 0.24 mm hole-to-hole in the manufacturer's pattern.
+(rule "USB-C pin holes"
+	(constraint hole_clearance (min 0.2mm))
+	(condition "A.memberOfFootprint('J1') || A.memberOfFootprint('J4')"))
+
+# Locating pegs are drawn as plated pads with no copper ring in the library footprints; that is what
+# the parts actually need, so do not warn about the padstack.
+(rule "Connector locating pegs"
+	(constraint assertion "A.Pad_Type == 'NPTH, mechanical'")
+	(severity ignore)
+	(condition "A.Type == 'Pad'"))
+
+# The exposed battery pads sit right at the top edge by design (0.3 mm of board beside them).
+(rule "Battery pads at the board edge"
+	(constraint edge_clearance (min 0.25mm))
+	(condition "A.Reference == 'TP1' || A.Reference == 'TP2'"))
