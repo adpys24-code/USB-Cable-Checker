@@ -11,6 +11,8 @@ Plug one end of a cable into a **source** connector and the other end into a
 you can see at a glance whether a cable is charge-only, USB 2.0, or fully wired
 for USB 3.x, and spot broken or missing wires.
 
+Front view of PCB is in [`docs/board-top.png`](docs/board-top.png).
+
 ![USB Cable Checker, 3D render](docs/board-3d.png)
 
 > [!WARNING]
@@ -26,6 +28,10 @@ for USB 3.x, and spot broken or missing wires.
   sink connector you use.
 - A conductor that runs through the cable completes the circuit and lights its
   LED. An unlit LED means that wire is missing or broken.
+
+> [!WARNING]
+> Never plug the checker into a real device, host or charger. Every contact on
+> the source side, including GND and shield, sits at the test voltage.
 
 The full schematic is in [`docs/usb-cable-checker-schematic.pdf`](docs/usb-cable-checker-schematic.pdf).
 
